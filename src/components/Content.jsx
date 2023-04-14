@@ -2,10 +2,20 @@ import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../App'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
-
+const bell = new Audio('/bell.mp3')
 const Content = () => {
-  const { value, setValue, initialValue, setInitialValue } =
-    useContext(AppContext)
+  const {
+    value,
+    setValue,
+    initialValue,
+    setInitialValue,
+    pomodoro,
+    setPomodoro,
+    short,
+    setShort,
+    long,
+    setLong,
+  } = useContext(AppContext)
 
   const [start, setStart] = useState(false)
 
@@ -17,6 +27,7 @@ const Content = () => {
         if (value === 0) {
           setStart(false)
           setValue(initialValue)
+          bell.play()
         }
         return () => clearInterval(interval)
       }, [value])
@@ -32,10 +43,16 @@ const Content = () => {
   if (min < 10) {
     min = '0' + min
   }
-  const setColor=()=>{
-    if(initialValue===60*25){ return '#ff6669'}
-    if(initialValue===60*5){ return '#26C6DA'}
-    if(initialValue===60*15){ return '#397097'}
+  const setColor = () => {
+    if (initialValue === pomodoro) {
+      return '#ff6669'
+    }
+    if (initialValue === short) {
+      return '#26C6DA'
+    }
+    if (initialValue === long) {
+      return '#397097'
+    }
   }
   return (
     <div className='content'>
@@ -46,13 +63,16 @@ const Content = () => {
         strokeWidth={5}
         styles={buildStyles({
           textColor: '#ffffff',
-          pathColor:setColor(),
+          pathColor: setColor(),
           trailColor: '#0a0f1f',
         })}
       />
-      <button style={{color:setColor()}} onClick={() => setStart(!start)}>
+      {initialValue>0?<button
+        style={{ color: setColor() }}
+        onClick={() => setStart(!start)}
+      >
         {start ? 'PAUSE' : 'START'}
-      </button>
+      </button>:null}
     </div>
   )
 }
