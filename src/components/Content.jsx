@@ -22,11 +22,18 @@ const Content = () => {
     setValue(value)
   },[start])
 
- 
+  let min = Math.floor(value / 60)
+  let sec = value % 60
+  if (sec < 10) {
+      sec = '0' + sec
+  }
+  if (min < 10) {
+      min = '0' + min
+  }
 
   return (
     <div className="content">
-    <CircularProgressbar value={value} maxValue={initialValue} text={`${value} s`} strokeWidth={5} 
+    <CircularProgressbar value={value} maxValue={initialValue} text={`${min}:${sec}`} strokeWidth={5} 
      styles={buildStyles({
           textColor: "#ffffff",
           pathColor: "#ff6669",
