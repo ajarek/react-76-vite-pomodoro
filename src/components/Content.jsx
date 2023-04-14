@@ -4,7 +4,7 @@ import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Content = () => {
-  const {value, setValue, pomodoro,setPomodoro,shortBreak,setShortBreak, longBreak,setLongBreak, changeType } = useContext(AppContext)
+  const {value, setValue,initialValue,setInitialValue } = useContext(AppContext)
   
   const [start, setStart] = useState(false);
   
@@ -16,7 +16,7 @@ const Content = () => {
       setValue(value-1);
       
     }, 1000);
-     if(value===0){setStart(false)}
+     if(value===0){setStart(false);setValue(initialValue)}
     return () => clearInterval(interval);
   }, [value]): useEffect(() => {
     setValue(value)
@@ -26,7 +26,7 @@ const Content = () => {
 
   return (
     <div className="content">
-    <CircularProgressbar value={value} maxValue={changeType()} text={`${value} s`} strokeWidth={5} 
+    <CircularProgressbar value={value} maxValue={initialValue} text={`${value} s`} strokeWidth={5} 
      styles={buildStyles({
           textColor: "#ffffff",
           pathColor: "#ff6669",

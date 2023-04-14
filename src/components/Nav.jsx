@@ -1,21 +1,18 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../App'
 const Nav = () => {
-  const {value, setValue, pomodoro,setPomodoro,shortBreak,setShortBreak, longBreak,setLongBreak } = useContext(AppContext)
+  const {value, setValue,initialValue,setInitialValue} = useContext(AppContext)
   const handlePomodoro=()=>{
-    setValue(pomodoro)
-    setShortBreak(null)
-    setLongBreak(null)
+    setInitialValue(60)
+    setValue(60)
   }
   const handleShortBreak=()=>{
-    setValue(null)
-    setShortBreak(shortBreak)
-    setLongBreak(null)
+    setInitialValue(30)
+    setValue(30)
   }
   const handleLongBreak=()=>{
-    setValue(null)
-    setShortBreak(null)
-    setLongBreak(longBreak)
+    setInitialValue(45)
+    setValue(45)
   }
   return (
     <nav className='nav'>

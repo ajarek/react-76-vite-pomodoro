@@ -3,20 +3,11 @@ import Header from './components/Header'
 import Content from './components/Content'
 export const AppContext = createContext()
 function App() {
-  const[pomodoro,setPomodoro] = useState(60)
-  const[shortBreak,setShortBreak] = useState(30)
-  const[longBreak,setLongBreak] = useState(45)
-  
-
-  const changeType=()=>{
-    if(pomodoro!==null){return pomodoro}
-    if(shortBreak!==null){return shortBreak}
-    if(longBreak!==null){return longBreak}
-  }
-  const [value, setValue] = useState(changeType());
+  const [initialValue,setInitialValue]=useState(60)
+  const [value, setValue] = useState(initialValue);
   return (
     <div className="App">
-      <AppContext.Provider value={{value, setValue, pomodoro,setPomodoro, shortBreak,setShortBreak, longBreak,setLongBreak,changeType}}>
+      <AppContext.Provider value={{value, setValue, initialValue,setInitialValue}}>
     <Header/>
     <Content/>
     </AppContext.Provider>
