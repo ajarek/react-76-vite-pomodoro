@@ -27,15 +27,15 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 .header{
   width: 100%;
-  height: 30vh;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 16px;
   
 }
@@ -103,5 +103,48 @@ body{
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+.setting{
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.setting button{
+  font-size: 2rem;
+  background-color: transparent;
+  cursor: pointer;
+ 
+}
+.full-page-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(19, 28, 57,0.7);
+}
+.setting-modal{
+  width: 320px;
+  height: 320px;
+  background-color: var(--font);
+  color: var(--background2);
+  border-radius: 25px;
+  padding: 16px;
+  position: relative;
+}
+.setting-modal button{
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
 }
 
