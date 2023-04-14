@@ -11,6 +11,8 @@
   --progress: #ff6669;
   --border:#aab5b8;
   --border-circle:#0a0f1f;
+  --short:#26C6DA;
+  --long:#397097;
 }
 body{
   font-family: 'Roboto',  sans-serif;
@@ -56,12 +58,28 @@ body{
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-.header .nav button:hover{
+.header .nav button:nth-child(1):hover{
   background-color: var(--progress);
   color: var(--background2);
 }
-.header .nav button:focus{
+.header .nav button:nth-child(1):focus{
   background-color: var(--progress);
+  color: var(--background2);
+}
+.header .nav button:nth-child(2):hover{
+  background-color: var(--short);
+  color: var(--background2);
+}
+.header .nav button:nth-child(2):focus{
+  background-color: var(--short);
+  color: var(--background2);
+}
+.header .nav button:nth-child(3):hover{
+  background-color: var(--long);
+  color: var(--background2);
+}
+.header .nav button:nth-child(3):focus{
+  background-color: var(--long);
   color: var(--background2);
 }
 .content{
@@ -82,7 +100,6 @@ body{
   height: 28px;
   background: transparent;
   border: none;
-  color: var(--progress);
   font-size: 1.5rem;
   cursor: pointer;
 }
