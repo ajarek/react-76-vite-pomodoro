@@ -28,6 +28,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  
 }
 .header{
   width: 100%;
@@ -167,4 +168,21 @@ body{
 #long{
  border:2px solid var(--long);
 }
-
+@media (max-width: 430px) {
+  .header{
+    padding: 0px;
+    height: 50vh;
+    justify-content: space-evenly;
+  }
+  .header h1{
+   display: none;
+  }
+  .header .nav{
+    width: 150px;
+    height: 150px;
+    grid-template-columns: repeat(1, 1fr); 
+  }
+  .header .nav button{
+    font-size: 1.2rem;
+  }
+}
