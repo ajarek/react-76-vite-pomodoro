@@ -4,18 +4,8 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 const bell = new Audio('/bell.mp3')
 const Content = () => {
-  const {
-    value,
-    setValue,
-    initialValue,
-    setInitialValue,
-    pomodoro,
-    setPomodoro,
-    short,
-    setShort,
-    long,
-    setLong,
-  } = useContext(AppContext)
+  const { value, setValue, initialValue, pomodoro, short, long } =
+    useContext(AppContext)
 
   const [start, setStart] = useState(false)
 
@@ -67,12 +57,14 @@ const Content = () => {
           trailColor: '#0a0f1f',
         })}
       />
-      {initialValue>0?<button
-        style={{ color: setColor() }}
-        onClick={() => setStart(!start)}
-      >
-        {start ? 'PAUSE' : 'START'}
-      </button>:null}
+      {initialValue > 0 ? (
+        <button
+          style={{ color: setColor() }}
+          onClick={() => setStart(!start)}
+        >
+          {start ? 'PAUSE' : 'START'}
+        </button>
+      ) : null}
     </div>
   )
 }

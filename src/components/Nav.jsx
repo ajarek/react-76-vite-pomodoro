@@ -1,18 +1,8 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useContext } from 'react'
 import { AppContext } from '../App'
 const Nav = () => {
-  const {
-    value,
-    setValue,
-    initialValue,
-    setInitialValue,
-    pomodoro,
-    setPomodoro,
-    short,
-    setShort,
-    long,
-    setLong,
-  } = useContext(AppContext)
+  const { setValue, setInitialValue, pomodoro, short, long } =
+    useContext(AppContext)
   const handlePomodoro = () => {
     setInitialValue(pomodoro)
     setValue(pomodoro)

@@ -1,19 +1,9 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useContext } from 'react'
 import { AppContext } from '../App'
 
 const SettingModal = ({ onClick }) => {
-  const {
-    value,
-    setValue,
-    initialValue,
-    setInitialValue,
-    pomodoro,
-    setPomodoro,
-    short,
-    setShort,
-    long,
-    setLong,
-  } = useContext(AppContext)
+  const { setValue, pomodoro, setPomodoro, short, setShort, long, setLong } =
+    useContext(AppContext)
 
   return (
     <div className='setting-modal'>
