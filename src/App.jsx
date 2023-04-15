@@ -12,9 +12,13 @@ function App() {
   const [short, setShort] = useState(60 * 5)
   const [long, setLong] = useState(60 * 15)
   const [toggle, setToggle] = useState(false)
-  
-  const toggleSetting=()=>{
-    setToggle(!toggle)
+
+  const toggleSetting = (e) => {
+    e.target.className === 'full-page-layout' ||
+    e.target.className === 'setting-btn' ||
+    e.target.className === 'modal-btn'
+      ? setToggle(!toggle)
+      : null
   }
   return (
     <div className='App'>
@@ -32,14 +36,14 @@ function App() {
           setLong,
         }}
       >
-        {toggle?
-        <FullPageLayout onClick={toggleSetting}>
-          <SettingModal onClick={toggleSetting}/>
-        </FullPageLayout>:null
-        }
+        {toggle ? (
+          <FullPageLayout onClick={toggleSetting}>
+            <SettingModal onClick={toggleSetting} />
+          </FullPageLayout>
+        ) : null}
         <Header />
         <Content />
-        <Setting onClick={toggleSetting}/>
+        <Setting onClick={toggleSetting} />
       </AppContext.Provider>
     </div>
   )

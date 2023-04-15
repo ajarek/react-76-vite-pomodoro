@@ -133,10 +133,13 @@ body{
 .setting-modal{
   width: 320px;
   height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--font);
   color: var(--background2);
   border-radius: 25px;
-  padding: 16px;
+  padding:32px 16px;
   position: relative;
 }
 .setting-modal button{
@@ -146,5 +149,22 @@ body{
   background-color: transparent;
   border: none;
   font-size: 1.3rem;
+}
+.setting-modal label{
+  font-size: 1.1rem;
+}
+.setting-modal input{
+  font-size: 1.5rem;
+  padding: 0 16px;
+  border-radius: 5px;
+}
+#pomodoro{
+ border:2px solid var(--progress);
+}
+#short{
+ border:2px solid var(--short);
+}
+#long{
+ border:2px solid var(--long);
 }
 
